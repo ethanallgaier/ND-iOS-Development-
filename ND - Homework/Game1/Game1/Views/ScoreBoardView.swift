@@ -70,10 +70,11 @@ struct ScoreBoardView: View {
                                 players: game.players,
                                 sortByHighestScore: game.sortByHighestScore
                             )
-                            
-                            for index in offsets {
-                                let player = sorted[index]
-                                modelContext.delete(player)
+                            withAnimation {
+                                for index in offsets {
+                                    let player = sorted[index]
+                                    modelContext.delete(player)
+                                }
                             }
                         }
                     }
